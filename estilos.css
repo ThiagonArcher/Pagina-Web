@@ -1,0 +1,239 @@
+/* General */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+header {
+  background-color: #800000; /* color vino */
+  color: white;
+  text-align: center;
+  padding: 30px 0;
+  position: relative;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+header p {
+  margin: 5px 0 0;
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+/* Icono del Carrito en el Header */
+.cart-icon-container {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 2em;
+}
+
+.cart-count {
+  background-color: #ffcc00; /* Amarillo/Dorado */
+  color: #800000;
+  border-radius: 50%;
+  padding: 2px 7px;
+  font-size: 0.6em;
+  font-weight: bold;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+/* Sección de Catálogo */
+section {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h2 {
+  text-align: center;
+  color: #800000; /* color vino */
+}
+
+/* Estilos de Artículo/Producto */
+article {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 20px;
+  display: inline-block;
+  vertical-align: top;
+  width: 220px;
+  text-align: center;
+}
+
+article img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+article h3 {
+  color: #333;
+}
+
+article p {
+  font-size: 0.95em;
+  margin: 5px 0;
+}
+
+/* Controles de Compra */
+.compra-controles {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compra-controles label {
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.compra-controles .cantidad {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Botones */
+.btn-agregar, .btn-comprar {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-agregar {
+  background-color: #ffcc00; /* Amarillo/Dorado para Agregar */
+  color: #800000;
+}
+
+.btn-agregar:hover {
+  background-color: #e6b800;
+}
+
+.btn-comprar {
+  background-color: #800000; /* Vino para Comprar Ahora */
+  color: white;
+}
+
+.btn-comprar:hover {
+  background-color: #660000;
+}
+
+/* Carrito Lateral (Aside) */
+.carrito {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+/* Estado: Carrito Visible */
+.carrito.visible {
+  transform: translateX(0);
+}
+
+.carrito h2 {
+  margin-top: 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #ccc;
+  text-align: left;
+}
+
+#lista-carrito {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.cart-empty-message {
+  color: #999;
+  font-style: italic;
+}
+
+.carrito-resumen {
+  border-top: 1px solid #ccc;
+  padding-top: 15px;
+  text-align: right;
+}
+
+.carrito-resumen strong {
+  font-size: 1.2em;
+  color: #800000;
+}
+
+.btn-comprar-carrito,
+.btn-vaciar-carrito,
+.btn-eliminar-item {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-comprar-carrito {
+  background-color: #008000; /* Verde para Pagar */
+  color: white;
+}
+
+.btn-comprar-carrito:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-vaciar-carrito {
+  background-color: #ff4d4d; /* Rojo para Vaciar */
+  color: white;
+}
+
+.btn-eliminar-item {
+  width: auto;
+  padding: 5px 8px;
+  font-weight: normal;
+  margin-left: 10px;
+  background-color: #f0f0f0;
+  color: #800000;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
