@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  web:
+    image: php:8.2-apache
+    container_name: app_tienda
+    ports:
+      - "8081:80"
+    volumes:
+      - ./:/var/www/html/
+    depends_on:
+      - db_norte
+      - db_centro
+      - db_sur
+    networks:
+      - red_distribuida
+    command: sh -c "apt-get update && apt-get install -y libpq-dev && docker-php-ext-install pgsql && docker-php-ext-enable pgsql && apache2-foreground"
+
+  db_norte:
+    image: postgres:15
+    container_name: db_norte
+    environment:
+      POSTGRES_DB: tienda
+      POSTGRES_USER: tienda_user
+      POSTGRES_PASSWORD: tienda123
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./data/norte:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red_distribuida
+
+  db_centro:
+    image: postgres:15
+    container_name: db_centro
+    environment:
+      POSTGRES_DB: tienda
+      POSTGRES_USER: tienda_user
+      POSTGRES_PASSWORD: tienda123
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./data/centro:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red_distribuida
+
+  db_sur:
+    image: postgres:15
+    container_name: db_sur
+    environment:
+      POSTGRES_DB: tienda
+      POSTGRES_USER: tienda_user
+      POSTGRES_PASSWORD: tienda123
+    ports:
+      - "5435:5432"
+    volumes:
+      - ./data/sur:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - red_distribuida
+
+networks:
+  red_distribuida:
+    driver: bridge
